@@ -13,6 +13,8 @@ class FASTAReader( object ):
     def next( self ):
         if self.last_id is None:
             line = self.file.readline()
+            if line == "":
+                raise StopIteration
             # Verify is header line
             assert line.startswith( ">" )
             # Extract id -- whole line
@@ -30,6 +32,8 @@ class FASTAReader( object ):
                 self.last_id = line[1:].split()[0]
                 break
             elif line == "":
+                if sequences:
+                    return identifier, "".join( sequences )
                 ## return None, None
                 raise StopIteration
             else:

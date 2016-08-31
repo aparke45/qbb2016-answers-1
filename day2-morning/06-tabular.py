@@ -8,7 +8,11 @@ for line in sys.stdin:
         print line.rstrip( "\r\n" )
         continue
     # Split fields on tab
-    fields = line.rstrip( "\r\n" ).split( "\t" )
+    fixed_line = line.rstrip( "\r\n" )
+    fields = fixed_line.split( "\t" )
+    
+    
+    
     # Convert and compute length
     length = int( fields[4] ) - int( fields[3] )
     # Write out with new field tab separated
@@ -17,4 +21,5 @@ for line in sys.stdin:
     print repr(fields)
     # Join fields back into a tab separated string
     print string.join( fields, "\t" )
+    
     

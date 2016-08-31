@@ -45,6 +45,9 @@ class FASTAReader( object ):
 
 reader = FASTAReader( sys.stdin )
 
+# for fnme in sys.argv[1:]:
+#     reader = FASTAReader( open( fname ) )
+
 # while 1:
 #     identifier, sequence = reader.next()
 #     if identifier is None: 

@@ -26,7 +26,7 @@ class FASTAReader( object ):
         sequences = []
 
         while True:
-            line = sys.stdin.readline().rstrip("\r\n")
+            line = self.file.readline().rstrip("\r\n")
             if line.startswith( ">" ):
                 self.last_id = line[1:].split()[0]
                 break
